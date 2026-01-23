@@ -4,9 +4,10 @@
 int main(){
   int screenWidth = 800;
   int screenHeight = 450;
-  raylib::Window window(screenWidth, screenHeight, "raylib-cpp - basic window");
-  Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2(screenWidth / 2.0f, screenHeight / 2.0f));
+  SetConfigFlags(FLAG_WINDOW_RESIZABLE);  
+  raylib::Window window(screenWidth, screenHeight, "Maple Engine - This is some cool shit");
   SetTargetFPS(60);
+  Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2(screenWidth / 2.0f, screenHeight / 2.0f));
   
   while(window.ShouldClose() == false){
     BeginDrawing();
