@@ -12,6 +12,7 @@ include(cmake/imgui.cmake)
 set(SOURCES 
   src/main.cpp 
   src/ball.cpp
+  src/camera.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
