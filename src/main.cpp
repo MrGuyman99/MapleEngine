@@ -13,7 +13,6 @@ int main(){
   
   Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2(screenWidth / 2.0f, screenHeight / 2.0f));
   raylib::Camera2D camera = raylib::Camera2D({ 0 });
-  CustomCamera Camera(camera);
   //This needs to be initialized or else nothing draws ¯\_(ツ)_/¯
   camera.zoom = 1.0f;
 
@@ -22,7 +21,7 @@ int main(){
     window.BeginDrawing();
       window.ClearBackground(DARKGRAY);
       DrawFPS(3, 3);
-      camera = Camera.Update();
+      CustomCamera::Update(camera);
       camera.BeginMode();
         TestBall.Draw();
       camera.EndMode();
