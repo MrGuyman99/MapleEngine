@@ -1,6 +1,5 @@
 #include "ball.hpp"
 #include "constants.hpp"
-#include<iostream>
 
 Ball::Ball(std::string ImagePath, raylib::Vector2 Position){
   this->Position = Position;
@@ -15,11 +14,11 @@ void Ball::Draw(){
 void Ball::Update(){
   Position += Velocity;
 
-  if(Position.GetX() > Constants::screenWidth + Constants::screenWidth / 2.0f || Position.GetX() < Constants::screenWidth / 2.0f){
+  if(Position.GetX() > Constants::screenWidth || Position.GetX() < 0){
     Velocity.SetX(Velocity.GetX() * -1);
   }
 
-  if(Position.GetY() > Constants::screenHeight + Constants::screenHeight / 2.0f || Position.GetY() < Constants::screenHeight / 2.0f){
+  if(Position.GetY() > Constants::screenHeight || Position.GetY() < 0){
     Velocity.SetY(Velocity.GetY() * -1);
   }
 

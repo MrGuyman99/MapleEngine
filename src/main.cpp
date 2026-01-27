@@ -12,7 +12,7 @@ int main(){
   
   Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2((Constants::screenWidth / 2.0f) + 8.0f, (Constants::screenHeight / 2.0f) + 8.0f));
   raylib::Camera2D camera = raylib::Camera2D({ 0 });
-  raylib::Vector2 Background = raylib::Vector2(Constants::screenWidth / 2.0f, Constants::screenHeight / 2.0f);
+  raylib::Vector2 Background = raylib::Vector2(0, 0);
   //This needs to be initialized or else nothing draws ¯\_(ツ)_/¯
   camera.zoom = 1.0f;
 
