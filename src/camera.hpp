@@ -1,3 +1,4 @@
+#pragma once
 #include<raylib-cpp.hpp>
 
 //This actually doesn't have to be a class!
