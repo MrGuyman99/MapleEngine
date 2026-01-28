@@ -23,7 +23,7 @@ int main(){
       CustomCamera::Update(camera);
       TestBall.Update();
       camera.BeginMode();
-        Background.DrawRectangle(raylib::Vector2(Constants::screenWidth, Constants::screenHeight), DARKBLUE);
+        Background.DrawRectangle(raylib::Vector2(Constants::screenWidth, Constants::screenHeight), BLUE);
         TestBall.Draw();
       camera.EndMode();
       DrawFPS(3, 3);
