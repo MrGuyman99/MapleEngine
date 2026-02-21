@@ -3,12 +3,13 @@
 
 class Ball{  
 public:
-  Ball(std::string Image_Path, raylib::Vector2 StartPos);
+  Ball(std::string Image_Path, raylib::Vector2 StartPos, double radius);
   void Draw();
   void Update();
+  void Ui();
   raylib::Vector2 Position;
   raylib::Vector2 Velocity;
-  double radius;
+  float radius;
 private:
   raylib::Texture BallTexture; 
 };

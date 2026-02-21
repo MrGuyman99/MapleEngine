@@ -1,25 +1,33 @@
 #include "ball.hpp"
 #include "constants.hpp"
+#include "imgui.h"
 
-Ball::Ball(std::string ImagePath, raylib::Vector2 Position){
+Ball::Ball(std::string ImagePath, raylib::Vector2 Position, double radius){
   this->Position = Position;
+  this->radius = radius;
   BallTexture = raylib::Texture(ImagePath);
-  Velocity = raylib::Vector2(8, 8);
+  Velocity = raylib::Vector2(5, 5);
 }
 
 void Ball::Draw(){
-  BallTexture.Draw(Position);
+  Position.DrawCircle(radius, PURPLE);
 }
 //TODO: Make the Ball bounce
 void Ball::Update(){
   Position += Velocity;
 
-  if(Position.GetX() > Constants::screenWidth || Position.GetX() < 0){
+  if(Position.GetX() + radius > Constants::screenWidth || Position.GetX() - radius < 0){
     Velocity.SetX(Velocity.GetX() * -1);
   }
-
-  if(Position.GetY() > Constants::screenHeight || Position.GetY() < 0){
+  // Left
+  if(Position.GetY() + radius > Constants::screenHeight || Position.GetY() - radius < 0){
     Velocity.SetY(Velocity.GetY() * -1);
   }
 
+}
+
+void Ball::Ui(){
+  ImGui::Begin("Ball Window");
+    ImGui::DragFloat("Radius", &radius, 1.0f, 8.0f, 100.0f);
+  ImGui::End();
 }
