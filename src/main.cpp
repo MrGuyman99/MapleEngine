@@ -12,7 +12,7 @@ int main(){
   SetTargetFPS(100);
   rlImGuiSetup(true);
 
-  Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2((Constants::screenWidth / 2.0f) + 8.0f, (Constants::screenHeight / 2.0f) + 8.0f), 100);
+  Ball TestBall = Ball("graphics/Ball.png", raylib::Vector2(Constants::screenWidth / 2.0f, Constants::screenHeight / 2.0f), 8);
   raylib::Camera2D camera = raylib::Camera2D({ 0 });
   raylib::Vector2 Background = raylib::Vector2(0, 0);
   //This needs to be initialized or else nothing draws ¯\_(ツ)_/¯
@@ -24,12 +24,12 @@ int main(){
       window.ClearBackground(DARKGRAY);
       CustomCamera::Update(camera);
       TestBall.Update();
-      // All things that need to be drawn relative to scale
+      //All things that need to be drawn relative to scale
       camera.BeginMode();
         Background.DrawRectangle(raylib::Vector2(Constants::screenWidth, Constants::screenHeight), BLUE);
         TestBall.Draw();
       camera.EndMode();
-      // ImGui Stuff
+      //ImGui Stuff
       rlImGuiBegin();
         TestBall.Ui();
       rlImGuiEnd();

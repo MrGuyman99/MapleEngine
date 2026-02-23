@@ -12,14 +12,14 @@ Ball::Ball(std::string ImagePath, raylib::Vector2 Position, double radius){
 void Ball::Draw(){
   Position.DrawCircle(radius, PURPLE);
 }
-//TODO: Make the Ball bounce
+
 void Ball::Update(){
   Position += Velocity;
 
   if(Position.GetX() + radius > Constants::screenWidth || Position.GetX() - radius < 0){
     Velocity.SetX(Velocity.GetX() * -1);
   }
-  // Left
+
   if(Position.GetY() + radius > Constants::screenHeight || Position.GetY() - radius < 0){
     Velocity.SetY(Velocity.GetY() * -1);
   }
